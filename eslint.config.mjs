@@ -14,6 +14,7 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
   recommendedConfig: js.configs.recommended,
   allConfig: js.configs.all,
+  configType: 'flat',
 })
 
 export default [
@@ -25,10 +26,9 @@ export default [
       '**/dist',
       '**/.github',
       '**/.idea',
-      'public/mockServiceWorker.js',
     ],
   },
-  ...compat.extends('ts-prefixer', 'plugin:jsx-a11y/recommended'),
+  ...compat.extends(/* 'ts-prefixer',  */ 'plugin:jsx-a11y/recommended'),
   {
     plugins: {
       'react-hooks': fixupPluginRules(reactHooks),
